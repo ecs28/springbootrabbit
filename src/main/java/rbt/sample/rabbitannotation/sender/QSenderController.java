@@ -16,19 +16,33 @@ public class QSenderController {
 	@Autowired
 	protected Queue auditQueue;
 	
+	
+	@Autowired
+	protected Queue inboundQueue;
+	
+	
 	@Autowired
 	protected RabbitTemplate rabbitTemplate;
 	
 	
 	public void send(String xml) {
-		rabbitTemplate.convertSendAndReceive(outboundQueue.getName(), xml);
-		System.out.println("Message sent - " + LocalDateTime.now()  +" :  " + xml);
+		sendMessage(outboundQueue, xml);
 	}
 	
 	
 	public void sendAudit(String xml) {
-		rabbitTemplate.convertSendAndReceive(auditQueue.getName(), xml);
-		System.out.println("[Audit] Message sent - " + LocalDateTime.now()  +" :  " + xml);
+		sendMessage(auditQueue, xml);
+	}
+
+	
+	public void sendInbound(String xml) {
+		sendMessage(inboundQueue, xml);
+	}
+
+	
+	protected void sendMessage(Queue queue, String message) {
+		rabbitTemplate.convertSendAndReceive(queue.getName(), message);
+		System.out.println("Message sent - " + queue.getName() + " - " + LocalDateTime.now()  +" :  " + message);
 	}
 	
 }

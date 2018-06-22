@@ -17,7 +17,6 @@ import rbt.sample.rabbitannotation.sender.QSenderController;
 @RunWith(SpringRunner.class)
 public class QConsumerControllerTest {
 
-	
 	private QConsumerController service = new QConsumerController();
 	
 	//mock rabbit

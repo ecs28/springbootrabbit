@@ -1,0 +1,9 @@
+---
+applications:
+- name: rabbit
+  host: rabbitannotation-28828
+  path: build/libs/rabbitannotation-0.0.1-SNAPSHOT.jar
+  memory: 756M
+  buildpack: java_buildpack
+  domain: cfapps.io
+  instances: 1
