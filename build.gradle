@@ -32,6 +32,6 @@ dependencies {
 	compile("org.aspectj:aspectjweaver:1.8.8")
 
 	//test
-	testCompile('org.mockito:mockito-all:1.8.4')
+	//testCompile('org.mockito:mockito-all:1.8.4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
